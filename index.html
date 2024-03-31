@@ -1,0 +1,81 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OnlyFans</title>
+    <link rel="stylesheet" href="https://onlyfans.wtf/content/css/app.min.css?v=1.3">
+</head>
+
+<body>
+    <div id="overlay" class="overlay">
+        <div class="overlay-body">
+            <div class="container">
+                <img src="https://onlyfans.wtf/content/images/OnlyFans_logo.png" alt="Only-Fans">
+                <p class="overlay-title">User Agreement &amp; Age Verification</p>
+            </div>
+
+            <p class="overlay-description">
+                By entering this site, you acknowledge that it may contain
+                user-generated material, explicit content, and potentially flashing
+                images.
+            </p>
+            <p class="overlay-description">
+                <strong>You must be at least 18 years old to access this website.</strong>
+            </p>
+            <p class="overlay-description">
+                By clicking <strong>'Accept'</strong>, you confirm that you are of the
+                required age and you accept our Terms &amp; Conditions.
+            </p>
+            <div class="overlay-buttons-wrapper">
+                <div id="accept-button" class="overlay-button">Accept</div>
+                <div id="decline-button" class="overlay-button">Decline</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="scare">
+        <video id="video" class="video" preload="auto" src="Never_Gonna_Give_You_Up.mp4"></video>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <script src="https://onlyfans.wtf/content/js/onlyfans.js?v=1.0"></script>
+
+    <script type="text/javascript">
+        const overlay = document.getElementById("overlay");
+        const declineButton = document.getElementById("decline-button");
+        const acceptButton = document.getElementById("accept-button");
+        const video = document.querySelector(".video#video");
+
+        video.addEventListener('pause', function(event) {
+            event.preventDefault(); // This prevents the default action
+            video.play(); // Play the video again
+        });
+
+        function acceptButtonClick(event) {
+            event.preventDefault();
+            
+            // Start the video
+            video.play();
+            
+            // Hide the overlay
+            overlay.style.display = 'none';
+        }
+
+        function declineButtonClick(event) {
+            event.preventDefault();
+            
+            // Change video source and play it
+            video.src = "Hello_Im_Cristiano_Ronaldo.mp4";
+            video.play();
+            
+            // Hide the overlay
+            overlay.style.display = 'none';
+        }
+
+        acceptButton.addEventListener("click", acceptButtonClick);
+        declineButton.addEventListener("click", declineButtonClick);
+    </script>
+</body>
+
+</html>
